@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jupyter-pod
+spec:
+  containers:
+  - name: jupyter
+    image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
+    command: ["sleep", "infinity"]
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+        cpu: 4
+        memory: 4Gi
+      requests:
+        nvidia.com/gpu: 1
+        cpu: 2
+        memory: 2Gi
