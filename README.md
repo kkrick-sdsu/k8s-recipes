@@ -1,4 +1,4 @@
-# Kubernetes Recipes
+# Kubernetes (k8s) Recipes
 This repository is a collection of "recipes" to accomplish specific tasks on Kubernetes. This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
 
 This repo assumes that you do have familiarity with the following:
@@ -16,7 +16,21 @@ This section coming soon!
 This section coming soon!
 
 ## Cloning this Repo
-This section coming soon!
+You can clone this entire repo if you would like to have a copy of all the recipes. You can then periodically perform a `git fetch` to check for updates, and you can download the updates with a `git pull`.
+- Note: A `git pull` may conflict with your local changes. If you wish to maintain your own changes, consider [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo instead.
+
+To clone this repo just follow these steps:
+1. Via commandline, navigate to where you want to clone this repo
+1. Run the following command:
+    ```bash
+    git clone https://github.com/SDSU-Research-CI/k8s-recipes.git
+    ```
+1. Verify that you successfully cloned the repo with `git status`:
+    ```bash
+    $ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+    ```
 
 ## Downloading Individual Files
 Just need one specific file? No problem! Just follow these steps to get one file at a time:
@@ -37,7 +51,7 @@ Just need one specific file? No problem! Just follow these steps to get one file
         ```bash
         wget https://raw.githubusercontent.com/SDSU-Research-CI/ic-intro/main/notebooks/analysis.ipynb
         ```
-1. Make sure that the file downloaded successfully:
+1. Make sure that the file downloaded successfully with `ls -la`:
     ```bash
     $ ls -la
     total 88
