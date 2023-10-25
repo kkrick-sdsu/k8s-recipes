@@ -3,6 +3,17 @@ kind: Pod
 metadata:
   name: jupyter-pod
 spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+            - key: nautilus.io/sdsuinstruction
+              operator: Exists
+  tolerations:
+  - effect: NoSchedule
+    key: nautilus.io/sdsu-fix
+    operator: Exists
   containers:
   - name: jupyter
     image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
@@ -14,5 +25,5 @@ spec:
         memory: 4Gi
       requests:
         nvidia.com/gpu: 1
-        cpu: 2
+        cpu: 1
         memory: 2Gi
