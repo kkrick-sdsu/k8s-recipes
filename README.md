@@ -12,9 +12,14 @@ If you are not familiar with them, software containers are software applications
 Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers.
 
 ## Getting Started
-In order to follow along with the examples in this repo, you will first need to get access to VERNE and request access to or creation of a namespace. You can think of a namespace as a project organizer
+In order to follow along with the examples in this repo, you will first need to get access to VERNE and request access to or creation of a namespace. A Kubernetes namespace allows shared access to containers and other resources. Namespaces can be created for individuals or groups (i.e. for a class, lab or research center).
 
-Follow these directions to get access to VERNE and a namespace: [Getting Access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess#getting-access)
+Follow the [Getting Access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess#getting-access) directions to get access to VERNE and a namespace. 
+
+The above directions will guide you through the following steps: 
+- Creating an account on the National Research Platform
+- Downloading your kube config file
+- Requesting access to or creation of a namespace
 
 ### Using JupyterHub on VERNE
 This section coming soon!
