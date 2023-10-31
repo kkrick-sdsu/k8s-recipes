@@ -1,10 +1,11 @@
 # Kubernetes (k8s) Recipes
-This repository is a collection of "recipes" to accomplish specific tasks on Kubernetes-based systems. This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
+This repository is a collection of "recipes" to accomplish specific tasks via containers run on Kubernetes-based systems.
+This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
 
-This repo assumes that you do have familiarity with the following:
-- Linux
-- Commandline
-- Git
+## Context for Containers and Kubernetes
+If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
+
+Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
 
 ## Prerequisites
 Before you begin using these recipes, you must have access to VERNE and be added to a namespace. 
@@ -13,11 +14,7 @@ The request process should require 10 minutes of your time, and should be approv
 
 We also highly recommend following our [getting started guide](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
 This guide should require 30 minutes of your time to complete.
-
-### Context for Containers and Kubernetes
-If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
-
-Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
+Should you run into any issues while following the guide, please send us an email at itd-research.ci@sdsu.edu.
 
 ## Interacting with Kubernetes
 Below we provide two options for interacting with Kubernetes:
