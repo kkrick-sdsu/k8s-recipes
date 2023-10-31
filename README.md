@@ -9,9 +9,9 @@ This repo assumes that you do have familiarity with the following:
 ## Context for Containers and Kubernetes
 If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
 
-Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers.
+Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
 
-## Getting Started
+## Getting Access
 In order to follow along with the examples in this repo, you will first need to get access to VERNE and request access to or creation of a namespace. A Kubernetes namespace allows shared access to containers and other resources. Namespaces can be created for individuals or groups (i.e. for a class, lab or research center).
 
 Follow the [Getting Access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess#getting-access) directions to get access to VERNE and a namespace. 
@@ -20,6 +20,25 @@ The above directions will guide you through the following steps:
 - Creating an account on the National Research Platform
 - Downloading your kube config file
 - Requesting access to or creation of a namespace
+
+## Getting Started
+We recommend that new users follow our [Getting Started](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted#getting-started) guide to gain familiarity with Kubernetes and kubectl.
+
+This guide comes with the following learning outcomes:
+- Understand containers and Kubernetes at a high-level
+- Start a Jupyter Notebook with the Kube Notebook image
+- Configure your Kube Notebook to be able to interact with VERNE
+- Launch a container on VERNE
+
+## Interacting with Kubernetes
+Below we provide two options for interacting with Kubernetes:
+- Using JupyterHub on VERNE
+- Using your local machine
+
+Using JupyterHub on VERNE is an attractive choice when first approaching Kubernetes and kubectl because it is pre-configured and allows for a short time-to-productivity.
+However, it does come with limitations chief of which is not being able to use the port-forwarding command. If one of the recipes calls for port-forwarding, it will be listed in the ingredients section.
+
+Once you are familiar with kubectl, we recommend downloading it and installing it on your local machine.
 
 ### Using JupyterHub on VERNE
 This section coming soon!
