@@ -1,13 +1,20 @@
 # Kubernetes (k8s) Recipes
-This repository is a collection of "recipes" to accomplish specific tasks on Kubernetes. This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
+This repository is a collection of "recipes" to accomplish specific tasks on Kubernetes-based systems. This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
 
 This repo assumes that you do have familiarity with the following:
 - Linux
 - Commandline
 - Git
 
+## Context for Containers and Kubernetes
+If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
+
+Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers.
+
 ## Getting Started
-This section coming soon!
+In order to follow along with the examples in this repo, you will first need to get access to VERNE and request access to or creation of a namespace. You can think of a namespace as a project organizer
+
+Follow these directions to get access to VERNE and a namespace: [Getting Access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess#getting-access)
 
 ### Using JupyterHub on VERNE
 This section coming soon!
