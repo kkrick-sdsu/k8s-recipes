@@ -1,6 +1,6 @@
 # Kubernetes (k8s) Recipes
 This repository is a collection of "recipes" to accomplish specific tasks via containers run on Kubernetes-based systems.
-This repo aims to increase the accessibility and usability of the compute resources available on VERNE and the larger National Research Platform Nautilus.
+This repo aims to increase the accessibility and usability of the compute resources available on [VERNE](https://sdsu-research-ci.github.io/instructionalcluster) and the larger National Research Platform Nautilus.
 
 ## Context for Containers and Kubernetes
 If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
@@ -12,9 +12,14 @@ Before you begin using these recipes, you must have access to VERNE and be added
 We have [written instructions for getting access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess) and an accompanying [video walkthrough](https://mediasite.sdsu.edu/Mediasite/Play/8e7f235bc56f44fdb4586cffe1e477a71d).
 The request process should require 10 minutes of your time, and should be approved within a business day by Research and Cyberinfrastructure.
 
-We also highly recommend following our [getting started guide](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
+It is also highly recommend following our [getting started guide](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
 This guide should require 30 minutes of your time to complete.
 Should you run into any issues while following the guide, please send us an email at itd-research.ci@sdsu.edu.
+
+The recipes in this repository assume that you have familiarity with the following items:
+- Linux
+- Commandline
+- Git
 
 ## Interacting with Kubernetes
 Below we provide two options for interacting with Kubernetes:
@@ -22,16 +27,22 @@ Below we provide two options for interacting with Kubernetes:
 - Using your local machine
 
 Using JupyterHub on VERNE is an attractive choice when first approaching Kubernetes and kubectl because it is pre-configured and allows for a short time-to-productivity.
-However, it does come with limitations chief of which is not being able to use the port-forwarding command. 
-If one of the recipes calls for any command that requires kubectl to run locally, it will be listed in the ingredients section.
 
 Once you are familiar with kubectl, we recommend downloading it and installing it on your local machine.
 
 ### Using JupyterHub on VERNE
-This section coming soon!
+Research and Cyberinfrastructure maintains a Kube Notebook container image which comes with kubectl pre-installed.
+If you completed the getting started guide, then you should already be familiar with this option.
+You can refer to these directions for [selecting and configuring the Kube Notebook image](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted#starting-a-kube-notebook) on [jupyterhub.sdsu.edu](jupyterhub.sdsu.edu).
 
 ### Using Your Local Machine
-This section coming soon!
+Installing kubectl on your local machine will allow you to use all of its available options.
+Some recipes may require a local installation of kubectl and will list that in the ingredients section.
+Please follow the [official directions for installing kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and select your operating system.
+When you come to the step "Verify kubectl configuration" you will need your kube config file.
+You should have downloaded this file and followed the set up in the getting access directions under the [NRP Portal tasks](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess#nrp-portal-tasks) section.
+If you did not do that, please do so prior to attempting to verify your kubectl installation.
+Should you run into any issues installing kubectl, please send us an email at itd-research.ci@sdsu.edu.
 
 ## Cloning this Repo
 You can clone this entire repo if you would like to have a copy of all the recipes. You can then periodically perform a `git fetch` to check for updates, and you can download the updates with a `git pull`.
