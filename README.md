@@ -5,18 +5,18 @@ This repo aims to increase the accessibility and usability of the compute resour
 ## Context for Containers and Kubernetes
 If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
 
-Kubernetes, often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
+[Kubernetes](https://kubernetes.io/), often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
 
 ## Prerequisites
 Before you begin using these recipes, you must have access to VERNE and be added to a namespace. 
 We have [written instructions for getting access](https://sdsu-research-ci.github.io/softwarefactory/gettingaccess) and an accompanying [video walkthrough](https://mediasite.sdsu.edu/Mediasite/Play/8e7f235bc56f44fdb4586cffe1e477a71d).
 The request process should require 10 minutes of your time, and should be approved within a business day by Research and Cyberinfrastructure.
 
-It is also highly recommend following our [getting started guide](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
+We highly recommend following our [getting started guide](https://sdsu-research-ci.github.io/softwarefactory/gettingstarted) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
 This guide should require 30 minutes of your time to complete.
 Should you run into any issues while following the guide, please send us an email at itd-research.ci@sdsu.edu.
 
-The recipes in this repository assume that you have familiarity with the following items:
+The recipes in this repository assume that you have familiarity with the following:
 - Linux
 - Commandline
 - Git
