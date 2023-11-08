@@ -17,7 +17,7 @@ By default, a pod is allowed to run for 6 hours, if you need to run for longer t
     - Windows (PowerShell)
         - `$ns="[your-namespace-here]"`
     - *Note*: Make sure to remove the brackets '[' & ']'
-1. Browse the available container images to see what software you want to run
+1. Browse the [available container images](https://sdsu-research-ci.github.io/instructionalcluster/images) to see what software you want to run
 1. Edit the file `jupyter-pod.yml` and replace the value for the `image:` line with the url of your chosen container image
 
 ## Instructions
