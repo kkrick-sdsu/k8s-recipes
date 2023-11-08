@@ -16,8 +16,7 @@ spec:
     operator: Exists
   containers:
   - name: jupyter
-    # image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
-    image: kkricksdsu/matlab-notebook:bertini
+    image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
     command: ["jupyter", "lab"]
     resources:
       limits:
