@@ -16,8 +16,9 @@ spec:
     operator: Exists
   containers:
   - name: jupyter
-    image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
-    command: ["sleep", "infinity"]
+    # image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
+    image: kkricksdsu/matlab-notebook:bertini
+    command: ["jupyter", "lab"]
     resources:
       limits:
         nvidia.com/gpu: 1

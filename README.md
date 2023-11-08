@@ -44,9 +44,12 @@ You should have downloaded this file and followed the set up in the getting acce
 If you did not do that, please do so prior to attempting to verify your kubectl installation.
 Should you run into any issues installing kubectl, please send us an email at itd-research.ci@sdsu.edu.
 
-## Cloning this Repo
+## Getting the Recipes
+Each of the recipes will assume that you have a copy of the recipe. Below are two options for getting copies of the recipes.
+
+### Cloning (or Forking) this Repo
 You can clone this entire repo if you would like to have a copy of all the recipes. You can then periodically perform a `git fetch` to check for updates, and you can download the updates with a `git pull`.
-- Note: A `git pull` may conflict with your local changes. If you wish to maintain your own changes, consider [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo instead.
+- *Note*: A `git pull` may conflict with your local changes. If you wish to maintain your own changes, consider [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo instead.
 
 To clone this repo just follow these steps:
 1. Via commandline, navigate to where you want to clone this repo
@@ -61,7 +64,7 @@ To clone this repo just follow these steps:
     Your branch is up to date with 'origin/master'.
     ```
 
-## Downloading Individual Files
+### Downloading Individual Files
 Just need one specific file? No problem! Just follow these steps to get one file at a time:
 
 1. Navigate the repo directory structure to get to the file you are interested in
