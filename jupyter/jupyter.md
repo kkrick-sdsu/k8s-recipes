@@ -1,10 +1,10 @@
 # Interactive Jupyter Lab
 This recipe schedules an interactive Jupyter Lab session on VERNE.
 This is useful when you need a long-running Jupyter instance and need to quickly change the resource allocations (i.e. CPUs, GPUs, and memory).
-By default, a pod is allowed to run for 6 hours, if you need to run for longer than that please email us at itd-research.ci@sdsu.edu.
+By default, a pod is allowed to run for 6 hours, if you need to run for longer than that please email us at csu-tide-support@sdsu.edu.
 
 ## Ingredients
-- [Local installation of kubectl](../README.md#using-your-local-machine)
+- [Local installation of kubectl](../README.md#install-kubectl)
 - Jupyter container image
 - Jupyter Notebook (optional)
 - Two terminal tabs
@@ -17,7 +17,7 @@ By default, a pod is allowed to run for 6 hours, if you need to run for longer t
     - Windows (PowerShell)
         - `$ns="[your-namespace-here]"`
     - *Note*: Make sure to remove the brackets '[' & ']'
-1. Browse the [available container images](https://sdsu-research-ci.github.io/instructionalcluster/images) to see what software you want to run
+1. Browse the [available container images](https://csu-tide.github.io/jupyterhub/images) to see what software you want to run
 1. Edit the file `jupyter-pod.yml` and replace the value for the `image:` line with the url of your chosen container image
 
 ## Instructions

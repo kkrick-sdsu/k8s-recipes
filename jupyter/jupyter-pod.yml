@@ -8,11 +8,11 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-            - key: nautilus.io/sdsuinstruction
+            - key: nautilus.io/csu-tide
               operator: Exists
   tolerations:
   - effect: NoSchedule
-    key: nautilus.io/sdsu-fix
+    key: nautilus.io/csu-tide
     operator: Exists
   containers:
   - name: jupyter
