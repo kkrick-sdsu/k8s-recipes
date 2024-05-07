@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-pod
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+            - key: nautilus.io/csu-tide
+              operator: Exists
+  tolerations:
+  - effect: NoSchedule
+    key: nautilus.io/csu-tide
+    operator: Exists
+  restartPolicy: Never
+  initContainers:
+  - name: get-files
+    image: bitnami/git:latest
+    command: ["/bin/bash", "-c", "curl -o /data/get-data.sh \"https://drive.usercontent.google.com/download?id=1XdgqCnUxMj0a7LdNIa072nME_8jibWSN&export=download&authuser=0&confirm=yes\""]
+    volumeMounts:
+    - mountPath: /data
+      name: data
+  containers:
+  - name: data
+    image: python:3
+    command: ["bash", "/data/get-data.sh"]
+    resources:
+      limits:        
+        cpu: 4
+        memory: 4Gi
+      requests:
+        cpu: 1
+        memory: 2Gi
+    volumeMounts:
+    - mountPath: /data
+      name: data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: index-volume
