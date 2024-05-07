@@ -1,5 +1,5 @@
 # Indexed Jobs
-Indexed Jobs are a special kind of Job that allow you to manage and execute batch jobs efficiently. 
+Indexed Jobs are a special kind of <a href="https://kubernetes.io/docs/concepts/workloads/controllers/job/" target="_blank">Kubernetes job</a> that allow you to manage and execute batch jobs efficiently. 
 They provide a mechanism for parallelizing job execution across multiple pod instances, enhancing scalability and performance for tasks that can be broken down into smaller units.
 
 For example, if you have 100 files that require pre-processing and each file can be processed independently, then an indexed job can be used to parallelize and speed up the pre-processing step.
@@ -28,7 +28,7 @@ When accessing data from a volume in an indexed job, a read-write many volume is
     - You should see output similar to the following:
     ```bash
     NAME                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS       AGE
-    index-volume          Bound    pvc-313811bb-d7a1-491b-808c-1baebffcc1c5   5Gi        RWX            rook-cephfs-tide   34s
+    index-volume          Bound    pvc-313811bb-d7a1-491b-808c-1baebffcc1c5   2Gi        RWX            rook-cephfs-tide   34s
     ```
 
 ### 2. Download Test Data
@@ -87,8 +87,8 @@ We will download the data using the pod defined in `data-pod.yaml` which runs th
 ### 3. Inspect the Indexed Job
 Before we schedule the indexed job, let's take a moment to see how its various components come together.
 
-Let's start with the [indexed-job.yaml](./indexed-job.yaml) file.
-From the first few lines, we can gather that this is a Kubernetes [batch job](https://kubernetes.io/docs/concepts/workloads/controllers/job/).
+Let's start with the <a href="./indexed-job.yaml" target="_blank">indexed-job.yaml</a> file.
+From the first few lines, we can gather that this is a Kubernetes batch job.
 From the Job's spec, we see the fields `completions`, `parallelism` and `completionMode` indicating that this is job will run for 10 completions, or iterations, with up to 2 pods in parallel and that this is an indexed job. 
 
 Using `completions` we can set our input size, for example if we wanted to process all 100 files in the directory `1of2`, then we would set `completions` to 100.
@@ -99,15 +99,15 @@ For example, if we needed 1 CPU and 2GB RAM per pod, and we set `parallelism` to
 With `completionMode` Indexed, our job's pods will be provided the environment variable `$JOB_COMPLETION_INDEX` which is in the range from 0 to `completions - 1`, or in the case of this example 0 through 9, inclusive.
 
 The container `pre-processor` will be running inside each of the pods.
-We can see that it is using the [python:3](https://hub.docker.com/_/python) container image which  will have the latest version of Python 3 installed. 
+We can see that it is using the <a href="https://hub.docker.com/_/python" target="_blank">python:3</a> container image which  will have the latest version of Python 3 installed. 
 We see that the container will be launching the bash script `wiki-test.sh`.
 This container will also be mounting our read-write many volume at the path `/data`.
 
-Next, let's consider the [wiki-text.sh](./wiki-text.sh) script, which is called as the command of the pre-processor container.
+Next, let's consider the <a href="./wiki-text.sh" target="_blank">wiki-text.sh</a> script, which is called as the command of the pre-processor container.
 We see that the script will install necessary Python dependencies from the `requirements.txt` file.
 Once the dependencies are installed, the script calls the program `pre_process_wiki_text.py` passing it the environment variable `$JOB_COMPLETION_INDEX`.
 
-Lastly, let's examine the program [pre_process_wiki_text.py](./pre_process_wiki_text.py).
+Lastly, let's examine the program <a href="./pre_process_wiki_text.py" target="_blank">pre_process_wiki_text.py</a>.
 We see a function `pre_process_text` that performs a simple transformation on our input text files by removing stop words and empty lines and then writing the results to the processed directory.
 The `main` function reads in the `$JOB_COMPLETION_INDEX` value which was passed in by the `wiki-text.sh` script.
 We then perform a transformation on the value of `$JOB_COMPLETION_INDEX` to match our input.
