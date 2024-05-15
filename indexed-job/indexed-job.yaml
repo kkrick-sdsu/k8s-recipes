@@ -21,11 +21,11 @@ spec:
         command: ["/bin/bash", "/data/wiki-text.sh"]
         resources:
           limits:
-            cpu: "2"
+            cpu: 2
             memory: 2Gi
           requests:
-            cpu: "1"
-            memory: 1Gi
+            cpu: 2
+            memory: 2Gi
         volumeMounts:
         - mountPath: /data
           name: data
