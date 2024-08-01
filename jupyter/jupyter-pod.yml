@@ -8,8 +8,8 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-            - key: nautilus.io/csu-tide
-              operator: Exists
+          - key: nautilus.io/csu-tide
+            operator: Exists
   tolerations:
   - effect: NoSchedule
     key: nautilus.io/csu-tide
