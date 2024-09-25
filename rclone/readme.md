@@ -106,9 +106,9 @@ You can use the following text guide as a supplement to this [recording for conf
 
 ### Process S3 Data
 1. Modify the pod.yaml file
-    - Replace `s3:my-bucket` on line 26 with your rclone remote and bucket name
+    - Replace `s3:my-bucket` on line 28 with your rclone remote and bucket name
         - I.E.: `rclone copy -LP tide-s3:maztec123/rclone-recipe ~/`
-    - If you had to make a unique secret name in the previous section, then replace the secret name on line 35
+    - If you had to make a unique secret name in the previous section, then replace the secret name on line 37
         - I.E.: `secretName: rclone-config-maztec123` 
 1. Save the file
 1. Schedule the pod to process the data
