@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: python
+spec:
+  containers:
+    - name: python
+      image: python:3
+      resources:
+        limits:
+          cpu: "2"
+          memory: "4Gi"
+        requests:
+          cpu: "2"
+          memory: "4Gi"
+      command: 
+      - "/bin/bash"
+      - "-c"
+      - |
+        apt-get update -y
+        apt-get install -y curl unzip
+        curl https://rclone.org/install.sh | bash
+        mkdir ~/.config
+        mkdir ~/.config/rclone
+        cp /config/rclone/rclone.conf ~/.config/rclone/
+        rclone copy -LP s3:my-bucket/rclone-recipe ~/
+        cd ~/ && bash copy-train-push.sh
+      volumeMounts:
+      - name: rclone-config
+        mountPath: /config/rclone/
+  restartPolicy: Never
+  volumes:
+  - name: rclone-config
+    secret:
+      secretName: rclone-config
+  nodeSelector:
+    nautilus.io/csu-tide: "true"
+  tolerations:
+    - key: nautilus.io/csu-tide
+      operator: Exists
+      effect: NoSchedule
