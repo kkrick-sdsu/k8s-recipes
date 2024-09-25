@@ -21,7 +21,7 @@ Rclone is a command line tool that is useful for transferring data to and from s
 
 ## Instructions
 ### Configure Rclone Locally
-You can use the following text guide as a supplement to this [recording for configuring Rclone]().
+You can use the following text guide as a supplement to this [recording for configuring Rclone](https://drive.google.com/file/d/1Xg63oOs7MN5z01HGm5CGCM9o9Vq_-W_w/view?usp=sharing).
 
 1. Start rclone configuration
     - `rclone config`
