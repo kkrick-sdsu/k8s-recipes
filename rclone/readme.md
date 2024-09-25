@@ -54,8 +54,6 @@ You can use the following text guide as a supplement to this [recording for conf
     - `n`
 1. Keep this remote
     - `y`
-1. Quit rclone config
-    - `q`
 1. You should now see a list of your remotes:
     ```bash
     Current remotes:
@@ -64,6 +62,8 @@ You can use the following text guide as a supplement to this [recording for conf
     ====                 ====
     s3                   s3
     ```
+1. Quit rclone config
+    - `q`
 1. Test your configuration
     - `rclone ls s3:my-bucket`
     - *Note*: Replace 's3' with your chosen remote name, replace 'my-bucket' with your bucket name
@@ -87,12 +87,13 @@ You can use the following text guide as a supplement to this [recording for conf
     - You should see the following:
     ```
         139 copy-train-push.sh
+         13 hello.txt
         173 train.py
     ```
 
 ### Add S3 Config to Namespace
 1. Make a copy of the file `template-rclone.conf` and save it/rename it as `rclone.conf`
-1. Update the first line with your remote name in the brackets
+1. Update the first line with your rclone remote name in the brackets
     - I.E.: `[tide-s3]`
 1. Enter your Access Key
 1. Enter your Secret Key
@@ -105,7 +106,7 @@ You can use the following text guide as a supplement to this [recording for conf
 
 ### Process S3 Data
 1. Modify the pod.yaml file
-    - Replace `s3:my-bucket` on line 26 with your rclone endpoint and bucket name
+    - Replace `s3:my-bucket` on line 26 with your rclone remote and bucket name
         - I.E.: `rclone copy -LP tide-s3:maztec123/rclone-recipe ~/`
     - If you had to make a unique secret name in the previous section, then replace the secret name on line 35
         - I.E.: `secretName: rclone-config-maztec123` 
