@@ -1,33 +1,30 @@
 # Kubernetes (k8s) Recipes
-This repository is a collection of "recipes" to accomplish specific tasks via containers run on Kubernetes-based systems.
+This repository is a collection of "recipes" to accomplish specific tasks via containers run on [Kubernetes](https://kubernetes.io/) systems.
 This repo aims to increase the accessibility and usability of the compute resources available on [TIDE](https://csu-tide.github.io/) and the larger National Research Platform Nautilus.
 
-## Context for Containers and Kubernetes
-If you are not familiar with them, software containers are software applications that have been packaged with all of their dependencies which includes the operating system, runtime environment and libraries. Containers allow for isolated runtime environments, consistent & reproducible execution, and portability from desktop to cluster or cloud. Containers are like virtual machines (VMs), but smaller and optimized to the software application.
-
-[Kubernetes](https://kubernetes.io/), often shortened to 'k8s', is a container orchestration platform that runs many containers at scale. Kubernetes manages each container's compute needs including CPUs, GPUs, memory, storage and networking. Kubernetes is like the operating system for containers. Kubernetes provides 'kubectl', a commandline tool for interacting with Kubernetes-based systems. Since Kubernetes is like the operating system, then kubectl is its commandline shell.
-
 ## Prerequisites
-Before you begin using these recipes, you must have access to TIDE and be added to a namespace. 
-Please follow the [instructions for getting access](https://csu-tide.github.io/containerization/gettingaccess).
-The request process should require 10 minutes of your time, and should be approved within a business day by TIDE Support team.
+Before you begin using these recipes, please:
+- Read the [Batch Jobs Overview](https://csu-tide.github.io/batch-jobs/)
+- Complete an [access request](https://csu-tide.github.io/batch-jobs/getting-access)
+    - The request process should require 10 minutes of your time, and should be approved within a business day by the TIDE Support team.
+- Read the [Storage Services Overview](https://csu-tide.github.io/storage-services/)
+- *Optional*: Complete a [storage request](https://csu-tide.github.io/storage-services/requesting-storage)
 
-We highly recommend following our [quickstart guide](https://csu-tide.github.io/containerization/quickstart) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
+Once you have access, we highly recommend following our [Getting Started guide](https://csu-tide.github.io/batch-jobs/getting-started) which will walk you through a "Hello World"-like example to give you some familiarity for working with Kubernetes via kubectl. 
 This guide should require 30 minutes of your time to complete.
-Should you run into any issues while following the guide, please send us an email at csu-tide-support@sdsu.edu.
+Should you run into any issues while following the guide, please submit the [TIDE Support form](https://tide.sdsu.edu/tide-support-request/) with the request type as “Namespace Access or Issue”.
 
 The recipes in this repository assume that you have familiarity with the following:
-- Linux
-- Commandline
-- Git
+- [Linux command line](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
+- [Git](https://git-scm.com/)
 
 ## Install Kubectl
-Kubectl is the commandline tool for interacting with a Kubernetes cluster.
+Kubectl is the command line tool for interacting with a Kubernetes cluster.
 Please follow the [official directions for installing kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and select your operating system.
 When you come to the step "Verify kubectl configuration" you will need your kube config file.
-You should have downloaded this file and followed the set up in the getting access directions under the [NRP Portal tasks](https://csu-tide.github.io/containerization/gettingaccess#nrp-portal-tasks) section.
+You should have downloaded this file and followed the set up in the getting access directions under the [NRP Portal tasks](https://csu-tide.github.io/batch-jobs/getting-access#nrp-portal-tasks) section.
 If you did not do that, please do so prior to attempting to verify your kubectl installation.
-Should you run into any issues installing kubectl, please send us an email at csu-tide-support@sdsu.edu.
+Should you run into any issues installing kubectl, please submit the [TIDE Support form](https://tide.sdsu.edu/tide-support-request/) with the request type as “Namespace Access or Issue”.
 
 ## Getting the Recipes
 Each of the recipes will assume that you have a copy of the recipe downloaded. Below are two options for getting copies of the recipes.
@@ -37,7 +34,7 @@ You can clone this entire repo if you would like to have a copy of all the recip
 - *Note*: A `git pull` may conflict with your local changes. If you wish to maintain your own changes, consider [forking](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repo instead.
 
 To clone this repo just follow these steps:
-1. Via commandline, navigate to where you want to clone this repo
+1. Via command line, navigate to where you want to clone this repo
 1. Run the following command:
     ```bash
     git clone https://github.com/csu-tide/k8s-recipes.git
