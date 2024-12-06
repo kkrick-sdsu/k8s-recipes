@@ -1,7 +1,7 @@
 # Interactive Jupyter Lab
 This recipe schedules an interactive Jupyter Lab session on TIDE.
 This is useful when you need to run multiple instances of JupyterLab or when estimating resource allocations (i.e. CPUs, GPUs, and memory) while developing and testing your code.
-A pod is allowed to run for 6 hours, so if you need to run for longer than that consider using a batch job.
+A pod is allowed to run for 6 hours, so if you need to run for longer than that consider using a [deployment or job](https://csu-tide.github.io/batch-jobs/#deployments).
 
 A quick note on the choice of storage for this recipe.
 We will be using Block Storage, which is ReadWriteOnce, requiring one unique volume per Jupyter Lab instance.

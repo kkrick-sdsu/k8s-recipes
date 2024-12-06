@@ -29,7 +29,7 @@ spec:
         memory: 4Gi
     volumeMounts:
     - name: jupyter-volume
-      mountPath: /home/jovyan/work
+      mountPath: /home/jovyan
   volumes:
   - name: jupyter-volume
     persistentVolumeClaim:
