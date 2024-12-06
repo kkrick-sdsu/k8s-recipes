@@ -16,7 +16,7 @@ spec:
     operator: Exists
   containers:
   - name: jupyter
-    image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/tensorflow:v1.3
+    image: quay.io/jupyter/pytorch-notebook:cuda12-2024-07-29
     command: ["jupyter", "lab"]
     resources:
       limits:
@@ -27,3 +27,10 @@ spec:
         nvidia.com/gpu: 1
         cpu: 2
         memory: 4Gi
+    volumeMounts:
+    - name: jupyter-volume
+      mountPath: /home/jovyan/work
+  volumes:
+  - name: jupyter-volume
+    persistentVolumeClaim:
+      claimName: jupyter-volume

@@ -1,7 +1,12 @@
 # Interactive Jupyter Lab
 This recipe schedules an interactive Jupyter Lab session on TIDE.
-This is useful when you need a long-running Jupyter instance and need to quickly change the resource allocations (i.e. CPUs, GPUs, and memory).
-By default, a pod is allowed to run for 6 hours, if you need to run for longer than that please email us at csu-tide-support@sdsu.edu.
+This is useful when you need to run multiple instances of JupyterLab or when estimating resource allocations (i.e. CPUs, GPUs, and memory) while developing and testing your code.
+A pod is allowed to run for 6 hours, so if you need to run for longer than that consider using a batch job.
+
+A quick note on the choice of storage for this recipe.
+We will be using Block Storage, which is ReadWriteOnce, requiring one unique volume per Jupyter Lab instance.
+In order to scale this recipe, allowing multiple instances access to the same data at the same time, you could use ReadWriteMany with Object Storage or File Storage.
+For more on storage types, please see the [Storage Services Overview](https://csu-tide.github.io/storage-services/).
 
 ## Ingredients
 - [Local installation of kubectl](../README.md#install-kubectl)
@@ -18,11 +23,18 @@ By default, a pod is allowed to run for 6 hours, if you need to run for longer t
         - `$ns="[your-namespace-here]"`
     - *Note*: Make sure to remove the brackets '[' & ']'
 1. Browse the [available container images](https://csu-tide.github.io/jupyterhub/images) to see what software you want to run
-1. Edit the file `jupyter-pod.yml` and replace the value for the `image:` line with the url of your chosen container image
+1. Edit the file `jupyter-pod.yaml` and replace the value for the `image:` line with the url of your chosen container image
 
 ## Instructions
+1. Create a small PersistentVolumeClaim (PVC) for this example:
+    - *Note*: If you already have a PVC in your namespace, feel free to instead update  `jupyter-pod.yaml` with your PVC claimName on line 36.
+    - `kubectl -n $ns apply -f volume.yaml`
+    - You should see the following:
+        ```
+        persistentvolumeclaim/jupyter-volume created
+        ```
 1. Schedule the Jupyter Lab pod onto TIDE:
-    - `kubectl -n $ns apply -f jupyter-pod.yml`
+    - `kubectl -n $ns apply -f jupyter-pod.yaml`
     - You should see the following:
         ```
         pod/jupyter-pod created
@@ -67,4 +79,6 @@ By default, a pod is allowed to run for 6 hours, if you need to run for longer t
     - You may leave the job running until it reaches the max runtime at which point it will be shut down automatically
         - Or
     - You can tell k8s to shut it down manually with this command:
-        - `kubectl -n $ns delete -f jupyter-pod.yml`
+        - `kubectl -n $ns delete -f jupyter-pod.yaml`
+1. If you created a PVC in step 1 just for this recipe, then please delete it:
+    - `kubectl -n $ns delete -f volume.yaml`
