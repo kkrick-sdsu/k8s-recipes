@@ -1,5 +1,5 @@
 # Indexed Jobs
-Indexed Jobs are a special kind of [Kuberentes Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/) that allow you to manage and execute batch jobs efficiently. 
+Indexed Jobs are a special kind of [Kubernetes Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/) that allow you to manage and execute batch jobs efficiently. 
 They provide a mechanism for parallelizing job execution across multiple pod instances, enhancing scalability and performance for tasks that can be broken down into smaller units.
 
 For example, if you have 100 files that require pre-processing and each file can be processed independently, then an indexed job can be used to parallelize and speed up the pre-processing step.
