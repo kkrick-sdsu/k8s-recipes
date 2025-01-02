@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vscode-gpu
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nautilus.io/csu-tide
+            operator: Exists
+  tolerations:
+  - key: nautilus.io/csu-tide
+    operator: Exists
+    effect: NoSchedule
+  - key: nautilus.io/sdsu-fix
+    operator: Exists
+    effect: NoSchedule
+  securityContext:
+    runAsUser: 0
+    runAsGroup: 0
+  containers:
+  - name: gpu
+    image: quay.io/jupyter/pytorch-notebook:cuda12-2024-07-29
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        curl -fsSL https://code-server.dev/install.sh | sh
+        code-server --auth none
+    env:
+    - name: GRANT_SUDO
+      value: "yes"
+    resources:
+      requests:
+        cpu: 4
+        memory: 16Gi
+        ephemeral-storage: 10Gi
+        nvidia.com/gpu: 1
+      limits:
+        cpu: 4
+        memory: 16Gi
+        ephemeral-storage: 10Gi
+        nvidia.com/gpu: 1
+    volumeMounts:
+    - name: dshm
+      mountPath: /dev/shm
+    - name: home
+      mountPath: /home/jovyan
+    # - name: shared
+    #   mountPath: /data
+  volumes:
+  - name: dshm
+    emptyDir:
+      medium: Memory
+  - name: home
+    persistentVolumeClaim:
+      claimName: -home
+  # - name: shared
+  #   persistentVolumeClaim:
+  #     claimName: shared-data
