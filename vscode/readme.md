@@ -34,6 +34,11 @@ You should be able to install and run code-server (VS Code) on any container ima
 The steps in this section should only be followed if you do not already have a home directory in your namespace.
 You will typically follow these steps if this is your first time through a recipe.
 
+1. Check to make sure you do not already have a home directory:
+    ```bash
+    kubectl -n $ns get pvc
+    ```
+    - *Note*: Search the name column for "[your-sso-id-prefix]-home", if you find one then skip to the next section of this recipe
 1. Modify the file `template-pvc.yaml` and prepend your SSO ID (university email) prefix on line 4, in front of "-home"
     - *I.E.*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "maztec-home" 
 1. Create your home directory:
