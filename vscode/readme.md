@@ -32,7 +32,7 @@ You should be able to install and run code-server (VS Code) on any container ima
 
 ### One-time Steps
 The steps in this section should only be followed if you do not already have a home directory in your namespace.
-You will typically follow these steps if this is your first time through this recipe.
+You will typically follow these steps if this is your first time through a recipe.
 
 1. Modify the file `template-pvc.yaml` and prepend your SSO ID (university email) prefix on line 4, in front of "-home"
     - *I.E.*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "maztec-home" 
