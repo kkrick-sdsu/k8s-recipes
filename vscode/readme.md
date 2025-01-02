@@ -38,7 +38,7 @@ You will typically follow these steps if this is your first time through a recip
     ```bash
     kubectl -n $ns get pvc
     ```
-    - *Note*: Search the name column for "[your-sso-id-prefix]-home", if you find one then skip to the next section of this recipe
+    - *Note*: Search the name column for "[your-sso-id-prefix]-home", if you find one then skip to step 4
 1. Modify the file `template-pvc.yaml` and prepend your SSO ID (university email) prefix on line 4, in front of "-home"
     - *I.E.*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "maztec-home" 
 1. Create your home directory:
