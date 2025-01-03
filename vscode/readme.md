@@ -38,7 +38,7 @@ You will typically follow these steps if this is your first time through a recip
     ```bash
     kubectl -n $ns get pvc
     ```
-    - *Note*: Search the name column for "[your-sso-id-prefix]-home", if you find one then skip to step 4
+    - *Note*: Search the name column for "[your-sso-id-prefix]-home", if you find one then skip to the next section
 1. Modify the file `template-pvc.yaml` and prepend your SSO ID (university email) prefix on line 4, in front of "-home"
     - *I.E.*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "maztec-home" 
 1. Create your home directory:
@@ -46,16 +46,16 @@ You will typically follow these steps if this is your first time through a recip
     kubectl -n $ns apply -f template-pvc.yaml
     ```
     - *Note*: If you get a validation warning message like 'The PersistentVolumeClaim "-home" is invalid...', then please verify that you saved your changes to the file
-1. Modify the file `vscode-pod.yaml` to attach your home directory in the spec.volumes.home entry (line 58) such that the value matches "[your-sso-id-prefix]-home"; I.E.: "maztec-home"
 
 ### Running VS Code
+1. Modify the file `vscode-pod.yaml` to attach your home directory in the spec.volumes.home entry (line 58) such that the value matches "[your-sso-id-prefix]-home"; I.E.: "maztec-home"
 1. (Optional) If you are running this in a shared namespace with other users, then we highly recommend that you append your SSO ID prefix to the metadata.name value (line 4)
-        - *I.E*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "vscode-gpu-maztec"
-    - *Note*: If you get a validation warning message like 'The Pod "vscode-gpu" is invalid:...', then please verify that you saved your changes to the file
+    - *I.E*: If your SSO ID is maztec@sdsu.edu, line 4 should be modified to "vscode-gpu-maztec"
 1. Schedule your VS Code job onto TIDE:
     ```bash
     kubectl -n $ns apply -f vscode-pod.yaml
     ```
+    - *Note*: If you get a validation warning message like 'The Pod "vscode-gpu" is invalid:...', then please verify that you modified and saved your changes to the file `vscode-pod.yaml`
 1. Check the status of your pod:
     ```bash
     kubectl -n $ns get pods
