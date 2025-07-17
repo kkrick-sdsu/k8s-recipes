@@ -11,9 +11,10 @@ spec:
             - key: nautilus.io/csu-tide
               operator: Exists
   tolerations:
-  - effect: NoSchedule
-    key: nautilus.io/csu-tide
-    operator: Exists
+  - key: nautilus.io/reservation
+    operator: Equal
+    value: csu-tide
+    effect: NoSchedule
   restartPolicy: Never
   initContainers:
   - name: get-files
