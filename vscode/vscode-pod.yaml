@@ -11,8 +11,9 @@ spec:
           - key: nautilus.io/csu-tide
             operator: Exists
   tolerations:
-  - key: nautilus.io/csu-tide
-    operator: Exists
+  - key: nautilus.io/reservation
+    operator: Equal
+    value: csu-tide
     effect: NoSchedule
   - key: nautilus.io/sdsu-fix
     operator: Exists

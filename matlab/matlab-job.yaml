@@ -17,9 +17,10 @@ spec:
                 values: 
                 - "NVIDIA-L40"
       tolerations:
-      - effect: NoSchedule
-        key: nautilus.io/csu-tide
-        operator: Exists
+      - key: nautilus.io/reservation
+        operator: Equal
+        value: csu-tide
+        effect: NoSchedule
       containers:
       - name: matlab
         image: gitlab-registry.nrp-nautilus.io/nrp/scientific-images/matlab:cuda-v1.4.1
