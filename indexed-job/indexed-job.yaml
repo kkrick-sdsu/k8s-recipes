@@ -31,8 +31,9 @@ spec:
           name: data
       restartPolicy: Never
       tolerations:
-      - key: nautilus.io/csu-tide
-        operator: Exists
+      - key: nautilus.io/reservation
+        operator: Equal
+        value: csu-tide
         effect: NoSchedule
       volumes:
       - name: data

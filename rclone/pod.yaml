@@ -38,6 +38,7 @@ spec:
   nodeSelector:
     nautilus.io/csu-tide: "true"
   tolerations:
-    - key: nautilus.io/csu-tide
-      operator: Exists
+    - key: nautilus.io/reservation
+      operator: Equal
+      value: csu-tide
       effect: NoSchedule
