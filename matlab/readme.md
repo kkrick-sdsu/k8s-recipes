@@ -16,26 +16,24 @@ This recipe schedules an interactive Jupyter Lab session with MATLAB on TIDE.
 1. Make sure that you have MATLAB licensing information (License File, License Server or account) as the container image does not provide a MATLAB license
 
 ## Instructions
-1. Schedule the MATLAB job:
-    - `kubectl -n $ns apply -f matlab-job.yaml`
+1. Schedule the MATLAB pod:
+    - `kubectl -n $ns apply -f matlab-pod.yaml`
     - You should see the following:
         ```
-        job.batch/matlab-job created
+        pod/matlab-pod created
         ```
-1. Make sure the pod for the job is ready:
+1. Make sure the pod is ready:
     - `kubectl -n $ns get pods --watch`
     - Note: Hit `ctrl + c` when the READY column shows 1/1
 1. In your second terminal, setup port-forwarding for the Jupyter Lab environment:
-    - `kubectl -n $ns port-forward matlab-job-[unique-id-here] 8888`
-    - Note: You will need to replace `[unique-id-here]` in the command above
+    - `kubectl -n $ns port-forward matlab-pod 8888`
     - You should see the following:
         ```
         Forwarding from 127.0.0.1:8888 -> 8888
         Forwarding from [::1]:8888 -> 8888
         ```
 1. In your first terminal, get the logs from the pod:
-    - `kubectl -n $ns logs matlab-job-[unique-id-here]`
-    - Note: You will need to replace `[unique-id-here]` in the command above
+    - `kubectl -n $ns logs matlab-pod`
     - You should see the output similar to the following:
         ```
         [C 2024-08-01 16:28:20.054 ServerApp] 
@@ -54,9 +52,9 @@ This recipe schedules an interactive Jupyter Lab session with MATLAB on TIDE.
     - Note: A license server may not work if it has IP address restrictions. You should contact your local IT support to check.
 
 ## Clean Up
-1. When you are done, please clean up the job:
-    - `kubectl -n $ns delete -f matlab-job.yaml`
+1. When you are done, please clean up the pod:
+    - `kubectl -n $ns delete -f matlab-pod.yaml`
     - You should see the following:
         ```
-        job.batch "matlab-job" deleted
+        pod "matlab-pod" deleted
         ```
