@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: matlab-job
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nautilus.io/csu-tide
+            operator: Exists
+          - key: nvidia.com/gpu.product
+            operator: In
+            values: 
+            - "NVIDIA-L40"
+  tolerations:
+  - key: nautilus.io/reservation
+    operator: Equal
+    value: csu-tide
+    effect: NoSchedule
+  containers:
+  - name: matlab
+    image: gitlab-registry.nrp-nautilus.io/nrp/scientific-images/matlab:cuda-v1.4.1
+    command: ["jupyter", "lab"]
+    resources:
+      limits:
+        nvidia.com/gpu: 1
+        cpu: 4
+        memory: 8Gi
+      requests:
+        nvidia.com/gpu: 1
+        cpu: 4
+        memory: 8Gi
